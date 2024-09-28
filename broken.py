@@ -1,11 +1,15 @@
-import os, re
+import os
+import re
 from pprint import pprint
 
-os.chdir('C:\Program Files (x86)\Internet Download Manager')
+# os.chdir('C:\Program Files (x86)\Internet Download Manager')
+
+
 def download(link):
     folder = r'D:\Videos\download'
     command = fr'idman /n /p "{folder}" /d "{link}"'
     os.system(command)
+
 
 def num(eps):
     try:
@@ -22,10 +26,10 @@ if __name__ == "__main__":
 
     animes_path = r"D:\Videos\download"
 
-    videos = [num(vid) for vid in os.listdir(animes_path) if vid.endswith("mp4")]
+    videos = [num(vid) for vid in os.listdir(
+        animes_path) if vid.endswith("mp4")]
 
     redownload = [eps for eps in range(start, end+1) if eps not in videos]
-
 
     print(redownload)
     # print(sorted(videos))
